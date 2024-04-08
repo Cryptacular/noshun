@@ -1,10 +1,10 @@
 {
-  "name": "logr",
+  "name": "noshun",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "logr": "node index.js"
+    "main": "tsx index.ts"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +12,11 @@
   "dependencies": {
     "@notionhq/client": "^2.2.14",
     "commander": "^12.0.0",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "tsx": "^4.7.2"
   }
 }

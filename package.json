@@ -4,7 +4,8 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "main": "tsx index.ts"
+    "main": "tsx index.ts",
+    "generate:help": "tsx scripts/generateReadme.ts"
   },
   "keywords": [],
   "author": "",

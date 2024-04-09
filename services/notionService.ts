@@ -37,12 +37,12 @@ export const addItemToDatabase = async (
   const databaseId = databaseIdMap[database];
 
   if (!databaseId) {
-    throw new Error("Could not find database ID", databaseIdMap);
+    throw new Error("Could not find database ID");
   }
 
   const newPage = await notion.pages.create({
     parent: {
-      database_id: databaseIdMap[database],
+      database_id: databaseId,
     },
     properties: {
       Name: {

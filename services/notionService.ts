@@ -1,14 +1,24 @@
+import { config } from "dotenv";
 import { Client } from "@notionhq/client";
 import sleep from "../utils/sleep";
 
-const databases = {
-  LOG: process.env.NOTION_LOG_DATABASE_ID,
-  TASKS: process.env.NOTION_TASKS_DATABASE_ID,
+config({ path: [".env.local", ".env"] });
+
+export enum notionDB {
+  LOG,
+  TASKS,
+  WINS,
+}
+
+const databaseIdMap = {
+  [notionDB.LOG]: process.env.NOTION_LOG_DATABASE_ID,
+  [notionDB.TASKS]: process.env.NOTION_TASKS_DATABASE_ID,
+  [notionDB.WINS]: process.env.NOTION_WINS_DATABASE_ID,
 };
 
 export const addItemToDatabase = async (
   item: string,
-  database: "LOG" | "TASKS",
+  database: notionDB,
   options?: { dryRun?: boolean; error?: boolean }
 ): Promise<void> => {
   const notion = new Client({
@@ -24,9 +34,15 @@ export const addItemToDatabase = async (
     return;
   }
 
+  const databaseId = databaseIdMap[database];
+
+  if (!databaseId) {
+    throw new Error("Could not find database ID", databaseIdMap);
+  }
+
   const newPage = await notion.pages.create({
     parent: {
-      database_id: databases[database]!,
+      database_id: databaseIdMap[database],
     },
     properties: {
       Name: {

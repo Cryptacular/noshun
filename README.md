@@ -1,6 +1,6 @@
 # Noshun
 
-A CLI tool to quickly add things to the Activity Log and Tasks databases in Notion.
+A CLI tool to quickly add things to the Activity Log, Tasks and Wins databases in Notion.
 
 # Setup
 
@@ -33,6 +33,7 @@ Notes:
 # How to use
 
 <!-- START: Help text -->
+
 ```
 Usage: noshun [options] [command]
 
@@ -46,6 +47,7 @@ Options:
 Commands:
   log <title...>   Adds an item to the Activity Log database in Notion
   task <title...>  Adds an item to the Tasks database in Notion
+  win <title...>   Adds an item to the Wins database in Notion
   help [command]   display help for command
 
 ```

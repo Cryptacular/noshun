@@ -57,28 +57,4 @@ for (const cmd of commands) {
     });
 }
 
-// program
-//   .command("log")
-//   .description("Adds an item to the Activity Log database in Notion")
-//   .argument("<title...>")
-//   .action(async (title) => {
-//     const options = program.opts();
-//     await runCommandWithSpinner(
-//       "Adding log to Notion...",
-//       async () => await addItemToDatabase(title.join(" "), notionDB.LOG, options)
-//     );
-//   });
-
-// program
-//   .command("task")
-//   .description("Adds an item to the Tasks database in Notion")
-//   .argument("<title...>")
-//   .action(async (title) => {
-//     const options = program.opts();
-//     await runCommandWithSpinner(
-//       "Adding task to Notion...",
-//       async () => await addItemToDatabase(title.join(" "), notionDB.TASKS, options)
-//     );
-//   });
-
 program.parse();
